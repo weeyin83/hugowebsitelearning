@@ -1,0 +1,32 @@
+name: Deploy Hugo Site to Azure Static Web Apps
+
+on:
+  push:
+    branches:
+      - main  # Trigger deployment on push to main branch
+  pull_request:
+    branches:
+      - main  # Trigger deployment on pull request to main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: 'latest'
+
+    - name: Build the site
+      run: hugo --minify
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: hugo-site
+        path: public
+
