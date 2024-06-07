@@ -1,6 +1,6 @@
 ---
 # Display name
-name: Welcome! Test deployment site
+name: Welcome! Test deployment site - preview test
 avatar_image: "gaugnov2019.jpg"
 # Username (this should match the folder name)
 authors:
